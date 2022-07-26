@@ -70,7 +70,7 @@ While I would have ended up coping the raw regex to a site like https://regexr.c
 
 ## Documentation
 
-Each function has a small comment explaining what it does, most description are almost directly taken from https://regexr.com/.
+Each function has a small comment explaining what it does, most descriptions are almost directly taken from https://regexr.com/.
 Want to get some more information look at the [MDN page](
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
