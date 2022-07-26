@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.149.0/testing/asserts.ts";
-import { flag, regex } from "../mod.ts";
+import { regexFlag, regex } from "../mod.ts";
 
 Deno.test("regex", () => {
   const pattern = regex`hello`;
@@ -7,15 +7,14 @@ Deno.test("regex", () => {
 });
 
 Deno.test("regex flags", () => {
-  const pattern = regex`hello`;
-  const flagged = flag(pattern, {
+  const flagged = regexFlag({
     global: true,
     ignoreCase: true,
     multiline: true,
     unicode: true,
     sticky: true,
     dotall: true,
-  });
+  })`hello`;
   assertEquals(flagged.flags, "gimsuy");
 });
 
@@ -29,7 +28,7 @@ Deno.test("regex match", () => {
 });
 
 Deno.test("regex matchall", () => {
-  const pattern = flag(`Hello World!`, { global: true });
+  const pattern = regexFlag({ global: true })`Hello World!`;
   assertEquals(pattern.exec("hello world!"), null);
   const matches = "Hello World!, Hello World!".matchAll(pattern);
   for (const match of matches) {

@@ -1,4 +1,4 @@
-import { asString, combine, FlagOptions, flagsToString } from "../util/mod.ts";
+import { combine, FlagOptions, flagsToString } from "../util/mod.ts";
 
 /**
  * Creates a regex from a template string
@@ -11,12 +11,15 @@ export function regex(
 }
 
 /**
- * `/input/flags`
- *
- * Creates a new regex with added flags
+ * Creates a regex from a template string
+ * Allows you to set the flags as well
  */
-export function flag(input: string | RegExp, options: FlagOptions) {
-  const matchString = asString(input);
-  const flagString = flagsToString(options);
-  return new RegExp(matchString, flagString);
+export function regexFlag(options?: FlagOptions) {
+  return (strings: ReadonlyArray<string>, ...expressions: RegExp[]) => {
+    if (options) {
+      const flagString = flagsToString(options);
+      return new RegExp(combine(strings, expressions), flagString);
+    }
+    return new RegExp(combine(strings, expressions));
+  };
 }

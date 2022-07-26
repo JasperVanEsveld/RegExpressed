@@ -6,7 +6,7 @@ import {
   quantity,
   regex,
   zeroOrMore,
-  flag,
+  regexFlag,
 } from "./mod.ts";
 
 const urlChar = charset`-@:%._+~#=${range("a", "z")}${range("A", "Z")}${range(
@@ -23,11 +23,10 @@ const host = regex`${optional`www.`}${domain}.${domainExt}`;
 const pathChar = or(urlChar, charset`()?&/=`);
 const path = zeroOrMore`${pathChar}`;
 
-const url = regex`${protocol}${host}${path}`;
-const globalUrl = flag(url, { global: true });
+const url = regexFlag({ global: true })`${protocol}${host}${path}`;
 
 console.log(
   "Some text with urls : https://www.hello.com/world, https://www.hello.com/world2".match(
-    globalUrl
+    url
   )
 );
