@@ -32,6 +32,21 @@ const word = oneOrMore`${wordChar}`
 regex`${word}@${word}${or(".nl", ".com")}`
 ```
 
+### Discord invite
+
+```js
+const host = or(
+  `discord.gg`,
+  `discord.media`,
+  `discord.com/invite`,
+  `discordapp.com/invite`
+);
+
+const inviteCode = quantity(0, 12)`${wordChar}`;
+const invite = regexFlag({ global: true })`${host}/${inviteCode}`;
+```
+
+
 ### URL
 ```js
 
@@ -50,6 +65,7 @@ const path = zeroOrMore`${pathChar}`;
 regex`${protocol}${host}${path}`;
 ```
 Complete example shown in `url-example.ts`
+
 
 ## Tradeoffs
 
