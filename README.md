@@ -43,7 +43,9 @@ const host = or(
 );
 
 const inviteCode = quantity(0, 12)`${wordChar}`;
-const invite = regexFlag({ global: true })`${host}/${inviteCode}`;
+
+// /(?:(?:discord\.gg)|(?:discord\.media)|(?:discord\.com\/invite)|(?:discordapp\.com\/invite))\/(?:\w){0,12}/g
+regexFlag({ global: true })`${host}/${inviteCode}`;
 ```
 
 
