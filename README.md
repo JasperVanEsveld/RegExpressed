@@ -5,7 +5,7 @@ Descriptive functions to create regular expressions.
 ## Readability
 
 Regular expressions are nutorious for being hard to read.
-Part of this issue to me is the result of many features use single characters (`+`,`*`,`?`, etc.)
+Part of this issue is thatmany features use single characters (`+`,`*`,`?`, etc.).
 It is hard to remember what each of them does and whenever you need to match a special character they need to be escaped.
 
 This library attempts to solve this issue by utilizing variables, functions and [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) to generate a RegEx.
