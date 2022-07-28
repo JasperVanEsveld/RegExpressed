@@ -5,7 +5,7 @@ Descriptive functions to create regular expressions.
 ## Readability
 
 Regular expressions are nutorious for being hard to read.
-Part of this issue is thatmany features use single characters (`+`,`*`,`?`, etc.).
+Part of this issue is that many features use single characters (`+`,`*`,`?`, etc.).
 It is hard to remember what each of them does and whenever you need to match a special character they need to be escaped.
 
 This library attempts to solve this issue by utilizing variables, functions and [tagged template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) to generate a RegEx.
@@ -66,12 +66,11 @@ const path = zeroOrMore`${pathChar}`;
 // /https?:\/\/(?:www\.)?[\-@:%._+~#=a-zA-Z0-9]{2,256}\.[a-z]{2,6}[\-@:%._+~#=a-zA-Z0-9()?&/=]*/
 regex`${protocol}${host}${path}`;
 ```
-Complete example shown in `url-example.ts`
 
 
 ## Tradeoffs
 
-In terms of functionality there is no tradeoff all regex features have an equivalent in this library.
+In terms of functionality there is no tradeoff, all regex features have an equivalent in this library.
 Most functions map directly to the same regex you normally would write by hand.
 The exception being that all quantifiers wrap the expression into an nonCaptureGroup `(?:some-pattern)`.
 This can generate a longer regex.
