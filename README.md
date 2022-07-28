@@ -4,7 +4,7 @@ Descriptive functions to create regular expressions.
 
 ## Readability
 
-Regular expressions are nutorious for being hard to read.
+Regular expressions are notorious for being hard to read.
 Part of this issue is that many features use single characters (`+`,`*`,`?`, etc.).
 It is hard to remember what each of them does and whenever you need to match a special character they need to be escaped.
 
